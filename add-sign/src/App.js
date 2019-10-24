@@ -27,7 +27,7 @@ class App extends Component {
    render() {
       return (
          <>
-            <button onClick={this.handleClick}>Dodaj "A"</button>
+            <button onClick={this.handleClick}>{this.props.btnTitle}</button>
             <PanelResult text={this.state.text} />
          </>
       );
