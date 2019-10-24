@@ -1,9 +1,16 @@
 import React, { Component } from "react";
 
 class App extends Component {
-   state = {
-      text: ""
-   };
+   constructor(props) {
+      super(props);
+      this.state = {
+         text: ""
+      };
+   }
+
+   // state = {
+   //    text: ""
+   // };
 
    handleClick() {
       const letter = "a";
