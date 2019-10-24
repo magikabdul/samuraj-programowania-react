@@ -12,26 +12,30 @@ class App extends Component {
    //    text: ""
    // };
 
-   handleClick() {
-      const letter = "a";
+   handleClick = () => {
+      const number = Math.floor(Math.random() * 10);
 
       // this.setState({
       //    text: this.state.text + letter
       // });
 
       this.setState(() => ({
-         text: this.state.text + letter
+         text: this.state.text + number
       }));
-   }
+   };
 
    render() {
       return (
          <>
-            <button onClick={this.handleClick.bind(this)}>Dodaj "A"</button>
-            <h1>{this.state.text}</h1>
+            <button onClick={this.handleClick}>Dodaj "A"</button>
+            <PanelResult text={this.state.text} />
          </>
       );
    }
 }
+
+const PanelResult = props => {
+   return <h1>{props.text}</h1>;
+};
 
 export default App;
