@@ -1,9 +1,25 @@
 import React, { Component } from "react";
 
 class App extends Component {
-   state = {};
+   state = {
+      text: ""
+   };
+
+   handleClick = () => {
+      const letter = "a";
+
+      this.setState({
+         text: this.state.text + letter
+      });
+   };
+
    render() {
-      return null;
+      return (
+         <>
+            <button onClick={this.handleClick}>Dodaj "A"</button>
+            <h1>{this.state.text}</h1>
+         </>
+      );
    }
 }
 
