@@ -5,18 +5,22 @@ class App extends Component {
       text: ""
    };
 
-   handleClick = () => {
+   handleClick() {
       const letter = "a";
 
-      this.setState({
+      // this.setState({
+      //    text: this.state.text + letter
+      // });
+
+      this.setState(() => ({
          text: this.state.text + letter
-      });
-   };
+      }));
+   }
 
    render() {
       return (
          <>
-            <button onClick={this.handleClick}>Dodaj "A"</button>
+            <button onClick={this.handleClick.bind(this)}>Dodaj "A"</button>
             <h1>{this.state.text}</h1>
          </>
       );
