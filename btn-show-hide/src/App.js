@@ -9,8 +9,8 @@ class App extends React.Component {
    handleClick = () => {
       this.setState({
          messageIsActive: !this.state.messageIsActive
-      })
-   }
+      });
+   };
 
    render() {
       const text =
@@ -18,8 +18,9 @@ class App extends React.Component {
 
       return (
          <>
-            <button onClick={this.handleClick}>Pokaż</button>
-            <p>{text}</p>
+            <button onClick={this.handleClick}>{this.state.messageIsActive ? "Ukryj" : "Pokaż"}</button>
+            {/* <p>{this.state.messageIsActive && text}</p> */}
+            {/* {this.state.messageIsActive ? <p>{text}</p> : null} */}
          </>
       );
    }
