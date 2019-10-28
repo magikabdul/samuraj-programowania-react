@@ -33,8 +33,7 @@ class App extends React.Component {
             <MathButton name="Reset" type="reset" click={this.handleMathClick} />
             <MathButton name="1" number="1" type="addiction" click={this.handleMathClick} />
             <MathButton name="10" number="10" type="addiction" click={this.handleMathClick} />
-            <h1>Liczba kliknięć: {this.state.count}</h1>
-            <h1>Wynik: {this.state.result}</h1>
+            <ResultPanel count={this.state.count} result={this.state.result} />
          </>
       );
    }
@@ -43,6 +42,17 @@ class App extends React.Component {
 const MathButton = props => {
    const number = parseInt(props.number);
    return <button onClick={() => props.click(props.type, number)}>{props.name}</button>;
+};
+
+const ResultPanel = props => {
+   return (
+      <>
+         <h1>
+            Liczba kliknięć: {props.count} {props.count > 10 ? <span>Przeciążenie procesora</span> : null}
+         </h1>
+         <h1>Wynik: {props.result}</h1>
+      </>
+   );
 };
 
 export default App;
