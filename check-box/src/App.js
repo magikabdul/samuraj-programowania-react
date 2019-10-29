@@ -17,6 +17,12 @@ const ValidationMessage = props => {
    );
 };
 
+const displayMessage = (isConfirmed, isFormSubitted) => {
+   if (isFormSubitted) {
+      return <ValidationMessage txt={isConfirmed} />;
+   }
+};
+
 class App extends React.Component {
    state = {
       isConfirmed: false,
@@ -39,19 +45,19 @@ class App extends React.Component {
       }
    };
 
-   displayMessage = () => {
-      if (this.state.isFormSubitted) {
-         return <ValidationMessage txt={this.state.isConfirmed} />;
-         // if (this.state.isConfirmed) {
-         //    return <PositiveMessage />;
-         // } else {
-         //    return <NegativeMessage />;
-         // }
-      }
-   };
+   // displayMessage = () => {
+   //    if (this.state.isFormSubitted) {
+   //       return <ValidationMessage txt={this.state.isConfirmed} />;
+   //       // if (this.state.isConfirmed) {
+   //       //    return <PositiveMessage />;
+   //       // } else {
+   //       //    return <NegativeMessage />;
+   //       // }
+   //    }
+   // };
 
    render() {
-      const { isConfirmed } = this.state;
+      const { isConfirmed, isFormSubitted } = this.state;
 
       return (
          <>
@@ -68,7 +74,7 @@ class App extends React.Component {
                <br />
                <button type="submit">Kup bilet</button>
             </form>
-            {this.displayMessage()}
+            {displayMessage(isConfirmed, isFormSubitted)}
          </>
       );
    }
