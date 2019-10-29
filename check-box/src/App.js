@@ -9,6 +9,25 @@ import "./App.css";
 //    return <p>Nie możesz obejrzeć tego filmu, jeżeli masz nimiej niż 16 lat.</p>;
 // };
 
+const OrderForm = props => {
+   const { submit, change, checked } = props;
+
+   return (
+      <form onSubmit={submit}>
+         <input
+            type="checkbox"
+            name=""
+            id="age"
+            onChange={change}
+            checked={checked}
+         />
+         <label htmlFor="age">Mam conajmniej 16 lat</label>
+         <br />
+         <button type="submit">Kup bilet</button>
+      </form>
+   );
+};
+
 const ValidationMessage = props => {
    return props.txt ? (
       <p>Możesz obejrzeć film. Zapraszamy!</p>
@@ -62,18 +81,11 @@ class App extends React.Component {
       return (
          <>
             <h1>Kup bilet na horror roku !</h1>
-            <form onSubmit={this.handleFormSubmitt} action="">
-               <input
-                  type="checkbox"
-                  name=""
-                  id="age"
-                  onChange={this.handleCheckboxChange}
-                  checked={isConfirmed}
-               />
-               <label htmlFor="age">Mam conajmniej 16 lat</label>
-               <br />
-               <button type="submit">Kup bilet</button>
-            </form>
+            <OrderForm
+               change={this.handleCheckboxChange}
+               submit={this.handleFormSubmitt}
+               checked={isConfirmed}
+            />
             {displayMessage(isConfirmed, isFormSubitted)}
          </>
       );
