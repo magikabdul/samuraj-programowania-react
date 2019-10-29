@@ -51,6 +51,8 @@ class App extends React.Component {
    };
 
    render() {
+      const { isConfirmed } = this.state;
+
       return (
          <>
             <h1>Kup bilet na horror roku !</h1>
@@ -60,7 +62,7 @@ class App extends React.Component {
                   name=""
                   id="age"
                   onChange={this.handleCheckboxChange}
-                  checked={this.state.isConfirmed}
+                  checked={isConfirmed}
                />
                <label htmlFor="age">Mam conajmniej 16 lat</label>
                <br />
