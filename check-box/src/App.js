@@ -1,12 +1,20 @@
 import React from "react";
 import "./App.css";
 
-const PositiveMessage = () => {
-   return <p>Możesz obejrzeć film. Zapraszamy!</p>;
-};
+// const PositiveMessage = () => {
+//    return <p>Możesz obejrzeć film. Zapraszamy!</p>;
+// };
 
-const NegativeMessage = () => {
-   return <p>Nie możesz obejrzeć tego filmu, jeżeli masz nimiej niż 16 lat.</p>;
+// const NegativeMessage = () => {
+//    return <p>Nie możesz obejrzeć tego filmu, jeżeli masz nimiej niż 16 lat.</p>;
+// };
+
+const ValidationMessage = props => {
+   return props.txt ? (
+      <p>Możesz obejrzeć film. Zapraszamy!</p>
+   ) : (
+      <p>Nie możesz obejrzeć tego filmu, jeżeli masz nimiej niż 16 lat.</p>
+   );
 };
 
 class App extends React.Component {
@@ -33,11 +41,12 @@ class App extends React.Component {
 
    displayMessage = () => {
       if (this.state.isFormSubitted) {
-         if (this.state.isConfirmed) {
-            return <PositiveMessage />;
-         } else {
-            return <NegativeMessage />;
-         }
+         return <ValidationMessage txt={this.state.isConfirmed} />;
+         // if (this.state.isConfirmed) {
+         //    return <PositiveMessage />;
+         // } else {
+         //    return <NegativeMessage />;
+         // }
       }
    };
 
