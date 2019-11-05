@@ -1,6 +1,7 @@
 import React, { Component } from "react";
-import Dollars from "./Dollars";
-import Euros from "./Euros";
+// import Dollars from "./Dollars";
+// import Euros from "./Euros";
+import Cash from "./Cash";
 
 class App extends Component {
    state = {
@@ -25,8 +26,20 @@ class App extends Component {
                   onChange={this.handleChange}
                />
             </label>
-            <Dollars ratio={this.state.ratioDollar} cash={this.state.amount} />
-            <Euros ratio={this.state.ratioEuro} cash={this.state.amount} />
+            {/* <Dollars ratio={this.state.ratioDollar} cash={this.state.amount} /> */}
+            {/* <Euros ratio={this.state.ratioEuro} cash={this.state.amount} /> */}
+
+            <Cash
+               ratio={this.state.ratioDollar}
+               cash={this.state.amount}
+               title="Wartość w $: "
+            />
+
+            <Cash
+               ratio={this.state.ratioEuro}
+               cash={this.state.amount}
+               title="Wartość w €: "
+            />
          </>
       );
    }
