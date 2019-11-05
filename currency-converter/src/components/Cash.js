@@ -1,7 +1,7 @@
 import React from "react";
 
 const Cash = props => {
-   const val = (props.cash / props.ratio).toFixed(2);
+   const val = ((props.cash / props.ratio) * props.price).toFixed(2);
 
    return (
       <>
