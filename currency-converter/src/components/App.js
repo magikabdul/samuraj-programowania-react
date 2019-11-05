@@ -5,10 +5,16 @@ import Cash from "./Cash";
 
 class App extends Component {
    state = {
-      amount: 0,
-      ratioDollar: 3.6,
-      ratioEuro: 4.2
+      amount: 0
+      // ratioDollar: 3.6,
+      // ratioEuro: 4.2
    };
+
+   currencies = [
+      { id: 1, name: "$", ratio: 3.6, title: "Wartość w $: " },
+      { id: 2, name: "€", ratio: 4.2, title: "Wartość w €: " },
+      { id: 3, name: "Y", ratio: 1.6, title: "Wartość w Y: " }
+   ];
 
    handleChange = e => {
       this.setState({
@@ -17,6 +23,15 @@ class App extends Component {
    };
 
    render() {
+      const calculations = this.currencies.map(curr => (
+         <Cash
+            key={curr.id}
+            cash={this.state.amount}
+            ratio={curr.ratio}
+            title={curr.title}
+         />
+      ));
+
       return (
          <>
             <label htmlFor="">
@@ -28,8 +43,7 @@ class App extends Component {
             </label>
             {/* <Dollars ratio={this.state.ratioDollar} cash={this.state.amount} /> */}
             {/* <Euros ratio={this.state.ratioEuro} cash={this.state.amount} /> */}
-
-            <Cash
+            {/* <Cash
                ratio={this.state.ratioDollar}
                cash={this.state.amount}
                title="Wartość w $: "
@@ -39,7 +53,8 @@ class App extends Component {
                ratio={this.state.ratioEuro}
                cash={this.state.amount}
                title="Wartość w €: "
-            />
+            /> */}
+            {calculations}
          </>
       );
    }
