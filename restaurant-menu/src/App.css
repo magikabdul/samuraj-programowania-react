@@ -1,22 +1,18 @@
-.App {
-  text-align: center;
+html {
+   font-size: 20px;
+   font-family: sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
+li {
+   line-height: 160%;
+   padding: 20px 10px;
+   cursor: pointer;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+li:nth-child(even) {
+   background-color: #eeeeee;
 }
 
-.App-link {
-  color: #09d3ac;
+li:nth-child(odd) {
+   background-color: #ccc;
 }
