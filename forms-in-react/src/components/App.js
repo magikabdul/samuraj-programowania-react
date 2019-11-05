@@ -8,28 +8,16 @@ class Form extends Component {
       number: 0
    };
 
-   handleCityChange = e => {
-      this.setState({
-         city: e.target.value
-      });
-   };
-
-   handleTextChange = e => {
-      this.setState({
-         text: e.target.value
-      });
-   };
-
-   handleIsLovedChange = e => {
-      this.setState({
-         isLoved: e.target.checked
-      });
-   };
-
-   handleSelectChange = e => {
-      this.setState({
-         number: e.target.value
-      });
+   handleChange = e => {
+      if (e.target.type === "checkbox") {
+         this.setState({
+            [e.target.name]: e.target.checked
+         });
+      } else {
+         this.setState({
+            [e.target.name]: e.target.value
+         });
+      }
    };
 
    render() {
@@ -39,9 +27,9 @@ class Form extends Component {
                Podaj miasto
                <input
                   value={this.state.city}
-                  onChange={this.handleCityChange}
+                  onChange={this.handleChange}
                   type="text"
-                  name=""
+                  name="city"
                   id=""
                />
             </label>
@@ -52,8 +40,8 @@ class Form extends Component {
                Napisz coś o tym mieście
                <textarea
                   value={this.state.text}
-                  onChange={this.handleTextChange}
-                  name=""
+                  onChange={this.handleChange}
+                  name="text"
                   id=""
                   cols="30"
                   rows="10"></textarea>
@@ -65,9 +53,9 @@ class Form extends Component {
                Czy lubisz to miasto
                <input
                   checked={this.state.isLoved}
-                  onChange={this.handleIsLovedChange}
+                  onChange={this.handleChange}
                   type="checkbox"
-                  name=""
+                  name="isLoved"
                   id=""
                />
             </label>
@@ -78,8 +66,8 @@ class Form extends Component {
                ile razy byliście w tym mieście
                <select
                   value={this.state.number}
-                  onChange={this.handleSelectChange}
-                  name=""
+                  onChange={this.handleChange}
+                  name="number"
                   id="">
                   <option value="0">0</option>
                   <option value="1">1</option>
