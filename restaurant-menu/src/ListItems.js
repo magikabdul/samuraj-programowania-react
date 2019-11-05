@@ -1,12 +1,23 @@
 import React from "react";
 
+import Item from "./Item";
+
 const ListItems = props => {
+   const items = props.items.map(item => (
+      <Item
+         key={item.id}
+         id={item.id}
+         name={item.name}
+         active={item.active}
+         changeStatus={props.changeStatus}
+      />
+   ));
+
    return (
-      <ul>
-         <li>1</li>
-         <li>2</li>
-         <li>3</li>
-      </ul>
+      <div className="list">
+         <h1>Twoje zamówienie</h1>
+         <ul>{items}</ul>
+      </div>
    );
 };
 

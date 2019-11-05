@@ -15,11 +15,27 @@ class App extends React.Component {
       ]
    };
 
+   handelChangeStatus = id => {
+      const items = this.state.items.map(item => {
+         if (id === item.id) {
+            item.active = !item.active;
+         }
+         return item;
+      });
+
+      this.setState({
+         items: items
+      });
+   };
+
    render() {
       return (
          <>
             <Header items={this.state.items} />
-            <ListItems />
+            <ListItems
+               items={this.state.items}
+               changeStatus={this.handelChangeStatus}
+            />
          </>
       );
    }
