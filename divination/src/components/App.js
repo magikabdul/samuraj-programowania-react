@@ -8,7 +8,8 @@ class App extends Component {
          { id: 2, text: "druga" },
          { id: 3, text: "trzecia" }
       ],
-      randomText: ""
+      randomText: "",
+      value: ""
    };
 
    handleRandomDivinationClick = () => {
@@ -20,6 +21,28 @@ class App extends Component {
       });
    };
 
+   handleInputChange = e => {
+      this.setState({
+         value: e.target.value
+      });
+   };
+
+   handleAddDivination = () => {
+      if (this.state.value.length > 0) {
+         const range = this.state.divination.length + 1;
+         const newArray = this.state.divination;
+         console.log(newArray);
+         newArray.push({
+            id: range,
+            text: this.state.value
+         });
+         this.setState({
+            divination: newArray,
+            value: ""
+         });
+      }
+   };
+
    render() {
       return (
          <>
@@ -29,8 +52,15 @@ class App extends Component {
                Zabacz wróźbę
             </button>
             <br />
-            <input style={{ margin: 20 }} type="text" name="" id="" />
-            <button>Dodaj wróźbę</button>
+            <input
+               value={this.state.value}
+               onChange={this.handleInputChange}
+               style={{ margin: 20 }}
+               type="text"
+               name=""
+               id=""
+            />
+            <button onClick={this.handleAddDivination}>Dodaj wróźbę</button>
             <Divination text={this.state.randomText} />
          </>
       );
