@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 // import App from "./components/App";
 // import Unmount from "./components/Unmount";
-import Counter from "./components/Counter";
+// import Counter from "./components/Counter";
+import Clock from "./components/Clock";
 
-ReactDOM.render(<Counter />, document.getElementById("root"));
+ReactDOM.render(<Clock />, document.getElementById("root"));
