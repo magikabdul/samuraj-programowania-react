@@ -6,9 +6,17 @@ class Child extends Component {
       console.log("Wywołanie componentDidMount w Child");
    }
 
+   componentDidUpdate() {
+      console.log("Wywołanie componentDidUpdate w Child");
+   }
+
+   componentWillUnmount() {
+      console.log("Wywołanie componentWillUnmount w Child");
+   }
+
    render() {
       console.log("Wywołanie render w Child");
-      return <></>;
+      return <>Child {String(this.props.status)}</>;
    }
 }
 
