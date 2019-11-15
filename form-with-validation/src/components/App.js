@@ -9,7 +9,22 @@ class App extends Component {
     username: "",
     email: "",
     password: "",
-    accept: false
+    accept: false,
+
+    errors: {
+      username: false,
+      email: false,
+      password: false,
+      accept: false
+    }
+  };
+
+  messages = {
+    username_incorrect:
+      " Imię musi być dłuższe niż 10 znaków i nie może zawierać spacji",
+    email_incorrect: " Brak @ w email",
+    password_incorrect: " Hasło musi mieć 8 znaków",
+    accept_incorrect: " Niepotwierdzona zgoda"
   };
 
   handleChange = e => {
@@ -36,6 +51,8 @@ class App extends Component {
           user={this.state}
           handleChange={this.handleChange}
           handleSubmit={this.handleSubmit}
+          errors={this.state.errors}
+          messages={this.messages}
         />
       </div>
     );

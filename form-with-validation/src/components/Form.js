@@ -12,6 +12,9 @@ const Form = props => {
           value={props.user.username}
           onChange={props.handleChange}
         />
+        {props.errors.username ? (
+          <span>{props.messages.username_incorrect}</span>
+        ) : null}
       </label>
 
       <label htmlFor="email">
@@ -23,6 +26,9 @@ const Form = props => {
           value={props.user.email}
           onChange={props.handleChange}
         />
+        {props.errors.email ? (
+          <span>{props.messages.email_incorrect}</span>
+        ) : null}
       </label>
 
       <label htmlFor="password">
@@ -34,6 +40,9 @@ const Form = props => {
           value={props.user.password}
           onChange={props.handleChange}
         />
+        {props.errors.password ? (
+          <span>{props.messages.password_incorrect}</span>
+        ) : null}
       </label>
 
       <label htmlFor="accept">
@@ -45,6 +54,9 @@ const Form = props => {
           onChange={props.handleChange}
         />{" "}
         Wyrażam zgodę
+        {props.errors.accept ? (
+          <span>{props.messages.accept_incorrect}</span>
+        ) : null}
       </label>
 
       <button>Zapisz się</button>
