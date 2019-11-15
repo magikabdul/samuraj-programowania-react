@@ -50,7 +50,7 @@ const Form = props => {
           type="checkbox"
           name="accept"
           id="accept"
-          checked={props.user.checked}
+          checked={props.user.accept}
           onChange={props.handleChange}
         />{" "}
         Wyrażam zgodę
@@ -60,6 +60,7 @@ const Form = props => {
       </label>
 
       <button>Zapisz się</button>
+      {props.user.showConfirmation ? <span>Dane wysłane</span> : null}
     </form>
   );
 };
