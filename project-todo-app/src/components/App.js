@@ -36,12 +36,13 @@ class App extends Component {
   };
 
   deleteTask = id => {
-    console.log(id)
+    const tasks = [...this.state.tasks];
+    const index = tasks.findIndex(task => task.id === id);
+    tasks.splice(index, 1); //usuwamy z tablicy el o index i jedną pozycję
+    this.setState({ tasks });
   };
 
-  changeTaskStatus = id => {
-    
-  };
+  changeTaskStatus = id => {};
 
   render() {
     return (
