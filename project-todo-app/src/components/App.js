@@ -29,7 +29,7 @@ class App extends Component {
         text: "pomalować",
         date: "2020-01-02",
         important: true,
-        active: true,
+        active: false,
         finishDate: null
       }
     ]
