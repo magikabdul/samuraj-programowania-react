@@ -2,13 +2,22 @@ import React, { Component } from "react";
 import "./AddTask.scss";
 
 class AddTask extends Component {
+  minDate = new Date().toISOString().slice(0, 10);
+
   state = {
     text: "",
     checked: false,
-    date: new Date().toLocaleString()
+    date: this.minDate
+  };
+
+  handleDateChange = e => {
+    this.setState({ date: e.target.value });
   };
 
   render() {
+    let maxDate = this.minDate.slice(0, 4) * 1 + 1;
+    maxDate = maxDate + "-12-31";
+
     return (
       <div className="form">
         <input
@@ -32,8 +41,9 @@ class AddTask extends Component {
           name=""
           id="date"
           value={this.state.date}
-          min=""
-          max=""
+          min={this.minDate}
+          max={maxDate}
+          onChange={this.handleDateChange}
         />
         <br />
         <button>Dodaj</button>
