@@ -30,7 +30,7 @@ class App extends Component {
         date: "2020-01-02",
         important: true,
         active: false,
-        finishDate: null
+        finishDate: new Date().getTime()
       }
     ]
   };
