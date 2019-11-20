@@ -14,6 +14,18 @@ class AddTask extends Component {
     this.setState({ date: e.target.value });
   };
 
+  handleText = e => {
+    this.setState({
+      text: e.target.value
+    });
+  };
+
+  handleCheckbox = e => {
+    this.setState({ checked: !this.state.checked });
+  };
+
+  handleClick = () => {};
+
   render() {
     let maxDate = this.minDate.slice(0, 4) * 1 + 1;
     maxDate = maxDate + "-12-31";
@@ -26,12 +38,14 @@ class AddTask extends Component {
           value={this.state.text}
           name=""
           id=""
+          onChange={this.handleText}
         />
         <input
           type="checkbox"
           checked={this.state.checked}
           name=""
           id="important"
+          onChange={this.handleCheckbox}
         />
         <label htmlFor="important">Priorytet</label>
         <br />
@@ -46,7 +60,7 @@ class AddTask extends Component {
           onChange={this.handleDateChange}
         />
         <br />
-        <button>Dodaj</button>
+        <button onClick={this.handleClick}>Dodaj</button>
       </div>
     );
   }
