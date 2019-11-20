@@ -24,7 +24,20 @@ class AddTask extends Component {
     this.setState({ checked: !this.state.checked });
   };
 
-  handleClick = () => {};
+  handleClick = () => {
+    const { text, date, checked } = this.state;
+
+    if (text.length > 2) {
+      const add = this.props.add(text, date, checked);
+      if (add) {
+        this.setState({
+          text: "",
+          checked: false,
+          date: this.minDate
+        });
+      }
+    }
+  };
 
   render() {
     let maxDate = this.minDate.slice(0, 4) * 1 + 1;
