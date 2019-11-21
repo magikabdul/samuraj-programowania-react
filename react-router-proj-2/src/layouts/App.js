@@ -4,25 +4,24 @@ import "../styles/App.css";
 
 import { BrowserRouter, NavLink } from "react-router-dom";
 
+import Header from "./Header";
+import Navigation from "./Navigation";
+import Page from "./Page";
+import Footer from "./Footer";
+
 class App extends Component {
   state = {};
   render() {
     return (
       <BrowserRouter>
-        <header>
-          {<Header/>}
-        </header>
-        <main>
-          <aside>
-            {<Navigation/>}
-          </aside>
-          <section className="blog">
-            {<Page/>}
-          </section>
-        </main>
-        <footer>
-          {<Footer/>}
-        </footer>
+        <div className="app">
+          <header>{<Header />}</header>
+          <main>
+            <aside>{<Navigation />}</aside>
+            <section className="page">{<Page />}</section>
+          </main>
+          <footer>{<Footer />}</footer>
+        </div>
       </BrowserRouter>
     );
   }
