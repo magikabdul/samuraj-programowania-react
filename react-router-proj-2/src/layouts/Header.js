@@ -22,7 +22,7 @@ const Header = () => {
           render={() => <img src={header3} alt="ccc" />}
         />
         <Route path="/admin" render={() => <img src={header1} alt="ddd" />} />
-        <Route render={() => <img src={header3} />} />
+        <Route render={() => <img src={header3} alt="ddd" />} />
       </Switch>
       {/* <img src={img} alt="" /> */}
     </>

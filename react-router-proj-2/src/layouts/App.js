@@ -2,7 +2,7 @@ import React, { Component } from "react";
 
 import "../styles/App.css";
 
-import { BrowserRouter, NavLink } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
 
 import Header from "./Header";
 import Navigation from "./Navigation";
