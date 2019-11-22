@@ -8,6 +8,10 @@ import header3 from "../images/header3.jpg";
 import "../styles/Header.css";
 
 const Header = () => {
+  // const images = [header1, header2, header3];
+  // const index = Math.floor(Math.random() * 3);
+  // console.log(index);
+  // const img = images[index];
   return (
     <>
       <Switch>
@@ -20,6 +24,7 @@ const Header = () => {
         <Route path="/admin" render={() => <img src={header1} alt="ddd" />} />
         <Route render={() => <img src={header3} />} />
       </Switch>
+      {/* <img src={img} alt="" /> */}
     </>
   );
 };
