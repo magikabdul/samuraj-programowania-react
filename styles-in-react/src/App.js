@@ -3,6 +3,7 @@ import React, { Component } from "react";
 import Text from "./Text";
 
 import "./App.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 class App extends Component {
   state = {
